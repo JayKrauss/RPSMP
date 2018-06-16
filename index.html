@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--Establish links and script links-->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Elemental Conquest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <script src="assets/javascript/logic.js"></script>
+    
+</head>
+<body>
+<!--Lay out site for two players-->
+<div class='container'>
+    <div class='row header'>
+        <div class='col-md-2 player1 border border-dark'>
+            <br><br>
+            <center><h4 class='seat1'>Player One</h4></center>
+        </div>
+        <div class='col-md-8 banner border border-dark'>
+            <br>
+            <center><h1 style='color:white'>Elemental Conquest</h1></center>
+        </div>
+        <div class='col-md-2 player2 border border-dark'>
+            <br><br>
+            <center><h4 class='seat2'>Player Two</h4></center>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-3 p1choice border border-dark'>
+            <div class='row p1name'>
+            <center><h4><span class='player1name'></span></h4></center>
+            </div>
+            <div class='row p1choiceimg'>
+
+            </div>
+        </div>
+        <div class='col-md-6 battlefield border border-dark'>
+            <br>
+            <div class='col-md-12 fight'><center><h1 style='color:white'>FIGHT!</h1></center></div>
+            <br><br>
+            <div class='col-md-12 bfp1'>
+                <center><span class='fakeh'>Player One Chooses:</span><br>
+                    <span class='fakeh1'>Waiting...</span></center>
+
+           <br><br>
+
+                <center><span class='fakeh'>Player Two Chooses:</span><br>
+                <span class='fakeh2'>Waiting...</span></center>
+            </div>
+            <br>
+            <div class='col-md-12 bfwinner'>
+                    <center><h4 style='color:white'>Select Your Element!</h4></center>
+            </div>
+        </div>
+        <div class='col-md-3 p2choice border border-dark'>
+            <div class='row p2name'>
+            <center><span class='player2name'></span></center>
+            </div>
+            <div class='row p2choiceimg'>
+        
+            </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-4 waterBtn border border-dark' id='waterBtn'>
+            <br>
+            <center><h2>Water!</h2></center>
+        </div>
+        <div class='col-md-4 earthBtn border border-dark' id='earthBtn'>
+            <br>
+            <center><h2 style='color:white'>Earth!</h2></center>
+        </div>
+        <div class='col-md-4 fireBtn border border-dark' id='fireBtn'>
+            <br>
+            <center><h2>Fire!</h2></center>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-12 score border border-dark'>
+           <center><h2 style='color:white'>Scores:</h2></center>
+           <div class='col-md-12'>
+            <center><span class='fakeh'>Player One: 0</span></center>
+            <center><span class='fakeh'>Player Two: 0</span></center>
+           </div>   
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+<!--Allow players to choose 1 or 2, record name, update server with player information. Lock additional players beyond that-->
+
+<!--Grid layout with a box for each player, display choice. Middle box for choices to be displayed-->
+
+<!--Inputs for Rock, Paper, or Scissors at the bottom-->
+
+<!--When input chosen, update server with choice-->
+
+<!--Once both players have chosen, display choices in the middle box-->
+
+<!--Run algorithm for deciding winner, display winner's name and score.-->
+
+<!--Chat functionality-->
+
+<!--Lay out site for two players-->
+
+<!--Allow players to choose 1 or 2, record name, update server with player information. Lock additional players beyond that-->
+
+<!--Grid layout with a box for each player, display choice. Middle box for choices to be displayed-->
+
+<!--Inputs for Rock, Paper, or Scissors at the bottom-->
+
+<!--When input chosen, update server with choice-->
+
+<!--Once both players have chosen, display choices in the middle box-->
+
+<!--Run algorithm for deciding winner, display winner's name and score.-->
+
+<!--Chat functionality-->
