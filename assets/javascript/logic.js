@@ -26,21 +26,47 @@ var fire = 3;
 var p1score = 0;
 var p2score = 0;
 
-var p1name = 'Player One';
-var p2name = 'Player Two';
+var player1name = 'Player One';
+var player2name = 'Player Two';
 
 $(document).ready(function(){
 
 $('body').on('click', '#p1Btn', function(){
     seat = 1;
-    console.log('player1')
+
+    $('#nameModal').modal('toggle');
+
+    database.ref("Player One").set({
+        name: player1name,
+        occupied: true});
+
+    $('.seat1name').text(player1name);
+    p1score = 0;
+
+    console.log(player1name)
     console.log(seat)
 });
+
 $('body').on('click', '#p2Btn', function(){
     seat = 2;
+
+    $('#nameModal').modal('toggle');
+    player1name = $('#formName').text()
+
+    database.ref("Player Two").set({
+        name: player2name,
+        occupied: true});
+
+    $('.seat2name').text(player2name);
+
     console.log('player2')
     console.log(seat)
 });
+
+$('#nameSubmit').on('click', function(){
+    player1name = $('input').val().trim();
+    console.log(player1name)
+})
 
 if (seat === 1){
 $('body').on('click', '#waterBtn', function(){
@@ -91,28 +117,7 @@ $('body').on('click', '#fireBtn', function(){
 
 
 //Pull player information, update server with player card (push)
-$('#seat1').on('click',function seatOne(){
 
-    p1name = prompt('What is your name?');
-    $('.player1name').text(p1name);
-
-    database.ref("p1").set({
-        name: p1name,
-        seat: occupied
-    })
-
-});
-
-$('#seat2').on('click', function seatTwo(){
-
-    p2name = prompt('What is your name?');
-    $('#player2name').text(p2name);
-
-    database.ref("p2").set({
-        name: p2name,
-        seat: occupied
-    })
-});
 
 //Display player choices, accept input and display choice, update player card with choice (set)
 
