@@ -13,7 +13,7 @@ var config = {
 
 //Global variables
 var players = 0;
-var seat = 0;
+var seat = 1;
 
 var ready = 0;
 
@@ -31,6 +31,18 @@ var p2name = 'Player Two';
 
 $(document).ready(function(){
 
+$('body').on('click', '#p1Btn', function(){
+    seat = 1;
+    console.log('player1')
+    console.log(seat)
+});
+$('body').on('click', '#p2Btn', function(){
+    seat = 2;
+    console.log('player2')
+    console.log(seat)
+});
+
+if (seat === 1){
 $('body').on('click', '#waterBtn', function(){
     $('.p1choiceimg').css('background-image', 'url(../RPSMP/assets/images/waterchoice.png') 
     $('.p1choiceimg').css('background-size', 'cover');
@@ -51,8 +63,33 @@ $('body').on('click', '#fireBtn', function(){
     $('.fakeh1').text('Fire!')
     console.log('fire')
 });
+}
 
+else if (seat === 2){
+$('body').on('click', '#waterBtn', function(){
+    $('.p2choiceimg').css('background-image', 'url(../RPSMP/assets/images/waterchoice.png') 
+    $('.p2choiceimg').css('background-size', 'cover');
+    $('.fakeh2').text('Water!')
+    console.log('water');
 });
+
+$('body').on('click', '#earthBtn', function(){
+    $('.p2choiceimg').css('background-image', 'url(../RPSMP/assets/images/earthchoice.png') 
+    $('.p2choiceimg').css('background-size', 'cover');
+    $('.fakeh2').text('Earth!')
+    console.log('earth')
+});
+
+$('body').on('click', '#fireBtn', function(){
+    $('.p2choiceimg').css('background-image', 'url(../RPSMP/assets/images/firechoice.png') 
+    $('.p2choiceimg').css('background-size', 'cover');
+    $('.fakeh2').text('Fire!')
+    console.log('fire')
+});
+}
+});
+
+
 //Pull player information, update server with player card (push)
 $('#seat1').on('click',function seatOne(){
 
