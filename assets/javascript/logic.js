@@ -23,104 +23,144 @@ var water = 1;
 var earth = 2;
 var fire = 3;
 
-var p1score = 0;
-var p2score = 0;
+var p1score = 1;
+var p2score = 1;
 
 var player1name = 'Player One';
 var player2name = 'Player Two';
 
 $(document).ready(function(){
 
-$('body').on('click', '#p1Btn', function(){
-    seat = 1;
+//Pull player information, update server with player card (push)
+$('#p1Btn').on('click', function(){
+    
+    database.ref("Player One").on("value", function(snapshot) {
+        console.log(snapshot.val().occupied);
+    if (snapshot.val().occupied === false){
 
-    $('#nameModal').modal('toggle');
+    $('#nameModal1').modal('toggle');
 
-    database.ref("Player One").set({
-        name: player1name,
-        occupied: true});
+    $('#nameSubmit1').on('click', function(){
+        player1name = $('#playername').val().trim();
 
-    $('.seat1name').text(player1name);
+        database.ref("Player One").set({
+            name: player1name,
+            occupied: true});
+
+        $('.seat1name').text(player1name);
+        $('.fakehn1').text(player1name + ' chooses:');
+    })
+
     p1score = 0;
+    seat = 1;
+}
 
-    console.log(player1name)
-    console.log(seat)
 });
 
-$('body').on('click', '#p2Btn', function(){
-    seat = 2;
+$('#p2Btn').on('click', function(){
+   
 
-    $('#nameModal').modal('toggle');
-    player1name = $('#formName').text()
+database.ref("Player Two").on("value", function(snapshot) {
+        console.log(snapshot.val().occupied);
 
-    database.ref("Player Two").set({
-        name: player2name,
-        occupied: true});
+    if (snapshot.val().occupied === false){
+    $('#nameModal2').modal('toggle');
 
-    $('.seat2name').text(player2name);
+    $('#nameSubmit2').on('click', function(){
+        player2name = $('#playername2').val().trim();
 
-    console.log('player2')
-    console.log(seat)
+        database.ref("Player Two").set({
+            name: player2name,
+            occupied: true});
+
+        $('.seat2name').text(player2name);
+        $('.fakehn2').text(player2name + ' chooses:');
+    })
+     p2score = 0; 
+     seat = 2;
+ }
+    
+
 });
 
-$('#nameSubmit').on('click', function(){
-    player1name = $('input').val().trim();
-    console.log(player1name)
-})
-
-if (seat === 1){
-$('body').on('click', '#waterBtn', function(){
+});
+//Display player choices, accept input and display choice, update player card with choice (set)
+$('#waterBtn').on('click', function(){
+    if (seat === 1){
     $('.p1choiceimg').css('background-image', 'url(../RPSMP/assets/images/waterchoice.png') 
     $('.p1choiceimg').css('background-size', 'cover');
     $('.fakeh1').text('Water!')
-    console.log('water');
+    database.ref("Player One").set({
+        name: player1name,
+        occupied: true,
+        choice: 1
+    });
+    console.log('water');}
+    else if (seat === 2){
+$('.p2choiceimg').css('background-image', 'url(../RPSMP/assets/images/waterchoice.png') 
+    $('.p2choiceimg').css('background-size', 'cover');
+    $('.fakeh2').text('Water!')
+    database.ref("Player Two").set({
+        name: player2name,
+        occupied: true,
+        choice: 1
+    });
+    console.log('water');}
 });
 
-$('body').on('click', '#earthBtn', function(){
+$('#earthBtn').on('click', function(){
+    if (seat === 1){
     $('.p1choiceimg').css('background-image', 'url(../RPSMP/assets/images/earthchoice.png') 
     $('.p1choiceimg').css('background-size', 'cover');
     $('.fakeh1').text('Earth!')
-    console.log('earth')
-});
-
-$('body').on('click', '#fireBtn', function(){
-    $('.p1choiceimg').css('background-image', 'url(../RPSMP/assets/images/firechoice.png') 
-    $('.p1choiceimg').css('background-size', 'cover');
-    $('.fakeh1').text('Fire!')
-    console.log('fire')
-});
-}
-
-else if (seat === 2){
-$('body').on('click', '#waterBtn', function(){
-    $('.p2choiceimg').css('background-image', 'url(../RPSMP/assets/images/waterchoice.png') 
-    $('.p2choiceimg').css('background-size', 'cover');
-    $('.fakeh2').text('Water!')
-    console.log('water');
-});
-
-$('body').on('click', '#earthBtn', function(){
+    database.ref("Player One").set({
+        name: player1name,
+        occupied: true,
+        choice: 2
+    });
+    console.log('earth')}
+    else if (seat === 2){
     $('.p2choiceimg').css('background-image', 'url(../RPSMP/assets/images/earthchoice.png') 
     $('.p2choiceimg').css('background-size', 'cover');
     $('.fakeh2').text('Earth!')
-    console.log('earth')
+    database.ref("Player Two").set({
+        name: player2name,
+        occupied: true,
+        choice: 2
+    });
+    console.log('earth')}
+    else {
+        alert('You must take a seat first!')
+    }
 });
 
-$('body').on('click', '#fireBtn', function(){
+$('#fireBtn').on('click', function(){
+    if (seat === 1){
+    $('.p1choiceimg').css('background-image', 'url(../RPSMP/assets/images/firechoice.png') 
+    $('.p1choiceimg').css('background-size', 'cover');
+    $('.fakeh1').text('Fire!')
+    database.ref("Player One").set({
+        name: player1name,
+        occupied: true,
+        choice: 3
+    });
+    console.log('fire')}
+    else if (seat === 2){
     $('.p2choiceimg').css('background-image', 'url(../RPSMP/assets/images/firechoice.png') 
     $('.p2choiceimg').css('background-size', 'cover');
     $('.fakeh2').text('Fire!')
+    database.ref("Player Two").set({
+        name: player2name,
+        occupied: true,
+        choice: 3
+    });
     console.log('fire')
+    }
+    else {
+        alert('You must take a seat first!')
+    }
 });
-}
 });
-
-
-//Pull player information, update server with player card (push)
-
-
-//Display player choices, accept input and display choice, update player card with choice (set)
-
 //Wait until both players have chosen, then display both choices
 
 //Decide winner and update score on player cards
@@ -130,3 +170,15 @@ $('body').on('click', '#fireBtn', function(){
 //Clear choice data on player cards
 
 //Clear board and continue game
+
+});
+
+
+
+
+
+
+
+
+
+

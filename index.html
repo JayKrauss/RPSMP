@@ -18,12 +18,12 @@
 <body>
 <!--Lay out site for two players-->
  
-  <!-- Modal -->
-  <div class="modal fade" id="nameModal" tabindex="-1" role="dialog" aria-labelledby="nameLabel" aria-hidden="true">
+  <!-- Modals -->
+  <div class="modal fade" id="nameModal1" tabindex="-1" role="dialog" aria-labelledby="nameLabel1" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="nameLabel">What is your name?</h5>
+          <h5 class="modal-title" id="nameLabel1">What is your name?</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -32,25 +32,43 @@
         <input type="text" id='playername'>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" id='nameSubmit' data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-primary" id='nameSubmit1' data-dismiss="modal">Submit</button>
         </div>
       </div>
     </div>
   </div>
-
+  <div class="modal fade" id="nameModal2" tabindex="-1" role="dialog" aria-labelledby="nameLabel2" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="nameLabel2">What is your name?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <input type="text" id='playername2'>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id='nameSubmit2' data-dismiss="modal">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--Begin DOM-perm -->
 <div class='container'>
     <div class='row header'>
         <div class='col-md-2 player1 border border-dark' id='p1Btn'>
             <br><br>
-            <center><h4 class='seat1name'>Player One</h4></center>
+            <center><h4 class='seat1name'>Take Seat</h4></center>
         </div>
         <div class='col-md-8 banner border border-dark'>
-            <br>
+            <br><br>
             <center><h1 style='color:white'>Elemental Conquest</h1></center>
         </div>
         <div class='col-md-2 player2 border border-dark' id='p2Btn'>
             <br><br>
-            <center><h4 class='seat2name'>Player Two</h4></center>
+            <center><h4 class='seat2name'>Take Seat</h4></center>
         </div>
     </div>
     <div class='row'>
@@ -67,12 +85,12 @@
             <div class='col-md-12 fight'><center><h1 style='color:white'>FIGHT!</h1></center></div>
             <br><br>
             <div class='col-md-12 bfp1'>
-                <center><span class='fakeh'>Player One Chooses:</span><br>
+                <center><span class='fakehn1'>Player One Chooses:</span><br>
                     <span class='fakeh1'>Waiting...</span></center>
 
            <br><br>
 
-                <center><span class='fakeh'>Player Two Chooses:</span><br>
+                <center><span class='fakehn2'>Player Two Chooses:</span><br>
                 <span class='fakeh2'>Waiting...</span></center>
             </div>
             <br>
